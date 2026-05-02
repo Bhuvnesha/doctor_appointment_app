@@ -143,7 +143,7 @@ footer span{color:var(--teal-mid);}
       <ul class="navbar-nav gap-2 align-items-center">
         <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('book')"><i class="bi bi-calendar-plus me-1"></i>Book Now</a></li>
         <li id="nav-admin-btn" class="nav-item">
-          <a class="nav-link admin-link" href="#" onclick="showPage('login')"><i class="bi bi-shield-lock me-1"></i>Admin Dashboard</a>
+          <a class="nav-link admin-link" href="{{route('admin.login')}}" ><i class="bi bi-shield-lock me-1"></i>Admin Dashboard</a>
         </li>
         <li id="nav-logout-btn" class="nav-item" style="display:none;">
           <a class="nav-link logout-link" href="#" onclick="doLogout()"><i class="bi bi-box-arrow-right me-1"></i>Logout</a>
