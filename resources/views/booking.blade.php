@@ -137,13 +137,13 @@ footer span{color:var(--teal-mid);}
       <ul class="navbar-nav me-auto gap-1">
         <li class="nav-item"><a class="nav-link" href="{{route('home')}}" >Home</a></li>
         <li class="nav-item"><a class="nav-link" href="{{route('booking')}}" >Book Appointment</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" onclick="scrollToSec('doctors')">Our Doctors</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" onclick="scrollToSec('services')">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{route('home')}}" >Our Doctors</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{route('home')}}" >Services</a></li>
       </ul>
       <ul class="navbar-nav gap-2 align-items-center">
-        <li class="nav-item"><a class="nav-link" href="{{route('booking')}}"><i class="bi bi-calendar-plus me-1"></i>Book Now</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('book')"><i class="bi bi-calendar-plus me-1"></i>Book Now</a></li>
         <li id="nav-admin-btn" class="nav-item">
-          <a class="nav-link admin-link" href="{{ route('admin.login') }}"><i class="bi bi-shield-lock me-1"></i>Admin Dashboard</a>
+          <a class="nav-link admin-link" href="#" onclick="showPage('login')"><i class="bi bi-shield-lock me-1"></i>Admin Dashboard</a>
         </li>
         <li id="nav-logout-btn" class="nav-item" style="display:none;">
           <a class="nav-link logout-link" href="#" onclick="doLogout()"><i class="bi bi-box-arrow-right me-1"></i>Logout</a>
@@ -153,85 +153,8 @@ footer span{color:var(--teal-mid);}
   </div>
 </nav>
 
-<!-- ══════════ HOME ══════════ -->
-<div id="page-home" class="page active">
-  <section class="hero">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-7">
-          <div class="hero-label"><i class="bi bi-patch-check me-1"></i>Trusted by 12,000+ patients</div>
-          <h1>Your health, our <em>priority</em> — book with ease</h1>
-          <p>Connect with top-rated specialists, get reminders, and manage your health all in one place.</p>
-          <button class="btn-hero" onclick="showPage('book')"><i class="bi bi-calendar2-heart me-2"></i>Book Appointment</button>
-          <button class="btn-hero-outline" onclick="scrollToSec('doctors')">Meet Our Doctors</button>
-        </div>
-        <div class="col-lg-5">
-          <div class="hero-card">
-            <div class="d-flex justify-content-around mb-3">
-              <div class="stat"><div class="stat-num">98%</div><div class="stat-lbl">Satisfaction rate</div></div>
-              <div class="hero-divider"></div>
-              <div class="stat"><div class="stat-num">50+</div><div class="stat-lbl">Specialists</div></div>
-              <div class="hero-divider"></div>
-              <div class="stat"><div class="stat-num">24/7</div><div class="stat-lbl">Support</div></div>
-            </div>
-            <div style="background:var(--surface);border-radius:12px;padding:16px;">
-              <div style="font-size:0.8rem;font-weight:600;color:var(--muted);margin-bottom:10px;">NEXT AVAILABLE SLOTS</div>
-              <div class="d-flex flex-column gap-2">
-                <div class="avail-badge"><div class="avail-dot"></div>Dr. Priya Sharma — Today 10:00 AM</div>
-                <div class="avail-badge"><div class="avail-dot"></div>Dr. Arun Mehta — Today 2:30 PM</div>
-                <div class="avail-badge"><div class="avail-dot"></div>Dr. Sara Khan — Tomorrow 9:00 AM</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-5 mt-2" id="services">
-    <div class="container">
-      <div class="text-center mb-5">
-        <div class="section-label">What we offer</div>
-        <div class="section-title">Comprehensive care, <em style="font-family:'DM Serif Display',serif;font-style:italic">simplified</em></div>
-        <p class="text-muted" style="max-width:480px;margin:0 auto;font-size:0.92rem;">Everything you need for your health journey — from quick consults to specialist referrals.</p>
-      </div>
-      <div class="row g-3">
-        <div class="col-md-4"><div class="feature-card h-100"><div class="feature-icon"><i class="bi bi-calendar-check"></i></div><h5>Easy Scheduling</h5><p>Book appointments in under 2 minutes with no hassle.</p></div></div>
-        <div class="col-md-4"><div class="feature-card h-100"><div class="feature-icon"><i class="bi bi-camera-video"></i></div><h5>Tele-Consultation</h5><p>See a doctor via secure video calls for non-emergency issues.</p></div></div>
-        <div class="col-md-4"><div class="feature-card h-100"><div class="feature-icon"><i class="bi bi-bell"></i></div><h5>Smart Reminders</h5><p>Automated reminders via SMS and email so you never miss a slot.</p></div></div>
-        <div class="col-md-4"><div class="feature-card h-100"><div class="feature-icon"><i class="bi bi-file-earmark-medical"></i></div><h5>Digital Records</h5><p>Access your prescriptions and lab results anytime.</p></div></div>
-        <div class="col-md-4"><div class="feature-card h-100"><div class="feature-icon"><i class="bi bi-shield-heart"></i></div><h5>Insurance Ready</h5><p>We work with major providers for seamless billing.</p></div></div>
-        <div class="col-md-4"><div class="feature-card h-100"><div class="feature-icon"><i class="bi bi-people"></i></div><h5>Family Profiles</h5><p>Manage your entire family's health under one account.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-5 bg-white" id="doctors">
-    <div class="container">
-      <div class="text-center mb-5">
-        <div class="section-label">Our team</div>
-        <div class="section-title">Meet our specialists</div>
-      </div>
-      <div class="row g-3">
-        <div class="col-md-3"><div class="doctor-card"><div class="doctor-avatar">PS</div><div class="doctor-body"><h6>Dr. Priya Sharma</h6><div class="doctor-spec">Cardiologist</div><div class="rating-row"><span class="rating-star">★★★★★</span> 4.9</div><div class="avail-chip">Available Today</div><button class="btn-book mt-3" style="padding:9px;font-size:0.82rem;" onclick="prefillDoc('Dr. Priya Sharma','Cardiology')">Book Now</button></div></div></div>
-        <div class="col-md-3"><div class="doctor-card"><div class="doctor-avatar" style="background:linear-gradient(135deg,#fdf3e3,#f9d7a0);">AM</div><div class="doctor-body"><h6>Dr. Arun Mehta</h6><div class="doctor-spec">Neurologist</div><div class="rating-row"><span class="rating-star">★★★★★</span> 4.8</div><div class="avail-chip">Available Today</div><button class="btn-book mt-3" style="padding:9px;font-size:0.82rem;" onclick="prefillDoc('Dr. Arun Mehta','Neurology')">Book Now</button></div></div></div>
-        <div class="col-md-3"><div class="doctor-card"><div class="doctor-avatar" style="background:linear-gradient(135deg,#f3e0f7,#d9aaee);">SK</div><div class="doctor-body"><h6>Dr. Sara Khan</h6><div class="doctor-spec">Dermatologist</div><div class="rating-row"><span class="rating-star">★★★★☆</span> 4.7</div><div class="avail-chip" style="background:#fff7e6;color:#a86500;">Tomorrow</div><button class="btn-book mt-3" style="padding:9px;font-size:0.82rem;" onclick="prefillDoc('Dr. Sara Khan','Dermatology')">Book Now</button></div></div></div>
-        <div class="col-md-3"><div class="doctor-card"><div class="doctor-avatar" style="background:linear-gradient(135deg,#e5f0fb,#a8ccf0);">RV</div><div class="doctor-body"><h6>Dr. Raj Verma</h6><div class="doctor-spec">Orthopedic</div><div class="rating-row"><span class="rating-star">★★★★★</span> 4.9</div><div class="avail-chip">Available Today</div><button class="btn-book mt-3" style="padding:9px;font-size:0.82rem;" onclick="prefillDoc('Dr. Raj Verma','Orthopedics')">Book Now</button></div></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-5" style="background:linear-gradient(135deg,#0d4f4f,#0d6e6e);">
-    <div class="container text-center">
-      <h2 style="font-family:'DM Serif Display',serif;color:#fff;font-size:2rem;margin-bottom:12px;">Ready to take charge of your health?</h2>
-      <p style="color:rgba(255,255,255,0.7);margin-bottom:24px;">Book your appointment today — it takes less than 2 minutes.</p>
-      <button class="btn-hero" onclick="showPage('book')"><i class="bi bi-calendar-plus me-2"></i>Book Your Appointment</button>
-    </div>
-  </section>
-</div>
-
 <!-- ══════════ BOOK ══════════ -->
-<div id="page-book" class="page">
+<div class="page-active">
   <div class="container py-5">
     <div class="page-header mb-1 text-center">
       <div class="section-label">Schedule a visit</div>
@@ -275,98 +198,6 @@ footer span{color:var(--teal-mid);}
   </div>
 </div>
 
-<!-- ══════════ LOGIN ══════════ -->
-<div id="page-login" class="page">
-  <div class="login-wrap">
-    <div class="login-card">
-      <div class="login-icon"><i class="bi bi-shield-lock-fill"></i></div>
-      <h3>Admin Login</h3>
-      <p class="sub">Enter your credentials to access the dashboard</p>
-
-      <div class="login-error" id="loginError"><i class="bi bi-exclamation-triangle me-2"></i><span id="loginErrorMsg">Invalid username or password.</span></div>
-
-      <div class="mb-3">
-        <label class="form-label">Username</label>
-        <input type="text" class="form-control" id="l-user" placeholder="admin" autocomplete="username"/>
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Password</label>
-        <div class="pw-wrap">
-          <input type="password" class="form-control" id="l-pass" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()"/>
-          <button class="show-pw" onclick="togglePw()" id="eyeBtn"><i class="bi bi-eye" id="eyeIcon"></i></button>
-        </div>
-      </div>
-      <div class="mb-4 d-flex align-items-center justify-content-between">
-        <label style="font-size:0.83rem;color:var(--muted);display:flex;align-items:center;gap:6px;cursor:pointer;">
-          <input type="checkbox" id="rememberMe" style="accent-color:var(--teal);"/> Remember me
-        </label>
-        <a href="#" style="font-size:0.83rem;color:var(--teal);">Forgot password?</a>
-      </div>
-      <button class="btn-book" onclick="doLogin()"><i class="bi bi-box-arrow-in-right me-2"></i>Sign In</button>
-      <div class="hint-box"><i class="bi bi-info-circle me-1"></i>Demo credentials — username: <strong>admin</strong> &nbsp;|&nbsp; password: <strong>admin123</strong></div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════ ADMIN DASHBOARD ══════════ -->
-<div id="page-admin" class="page">
-  <div style="background:linear-gradient(90deg,#0d4f4f,#0d6e6e);padding:10px 0;">
-    <div class="container">
-      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
-        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.9);font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:20px;">
-          <i class="bi bi-shield-check"></i> Logged in as <strong style="margin-left:3px;">Administrator</strong>
-        </div>
-        <div style="display:flex;gap:8px;">
-          <button onclick="showPage('book')" style="background:rgba(255,255,255,0.12);color:#fff;border:none;border-radius:8px;padding:6px 14px;font-size:0.82rem;cursor:pointer;"><i class="bi bi-plus me-1"></i>New Appointment</button>
-          <button onclick="doLogout()" style="background:rgba(255,255,255,0.12);color:#fff;border:none;border-radius:8px;padding:6px 14px;font-size:0.82rem;cursor:pointer;"><i class="bi bi-box-arrow-right me-1"></i>Logout</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container py-4">
-    <div class="page-header">
-      <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
-        <div>
-          <div class="section-label">Admin Panel</div>
-          <h2>Appointments Dashboard</h2>
-        </div>
-        <button onclick="exportCSV()" style="background:var(--teal-light);color:var(--teal);border:1px solid #b2dede;border-radius:9px;padding:8px 18px;font-size:0.85rem;font-weight:500;cursor:pointer;"><i class="bi bi-download me-1"></i>Export CSV</button>
-      </div>
-    </div>
-
-    <div class="row g-3 mb-4">
-      <div class="col-6 col-md-3"><div class="dash-stat d-flex justify-content-between align-items-start"><div><div class="dash-stat-num" id="stat-total">—</div><div class="dash-stat-lbl">Total Appointments</div></div><div class="dash-stat-icon" style="background:var(--teal-light);color:var(--teal);"><i class="bi bi-calendar3"></i></div></div></div>
-      <div class="col-6 col-md-3"><div class="dash-stat d-flex justify-content-between align-items-start"><div><div class="dash-stat-num" id="stat-confirmed">—</div><div class="dash-stat-lbl">Confirmed</div></div><div class="dash-stat-icon" style="background:#e6f9f0;color:#1a7a4a;"><i class="bi bi-check-circle"></i></div></div></div>
-      <div class="col-6 col-md-3"><div class="dash-stat d-flex justify-content-between align-items-start"><div><div class="dash-stat-num" id="stat-pending">—</div><div class="dash-stat-lbl">Pending</div></div><div class="dash-stat-icon" style="background:#fff7e6;color:#a86500;"><i class="bi bi-hourglass-split"></i></div></div></div>
-      <div class="col-6 col-md-3"><div class="dash-stat d-flex justify-content-between align-items-start"><div><div class="dash-stat-num" id="stat-today">—</div><div class="dash-stat-lbl">Today's Appointments</div></div><div class="dash-stat-icon" style="background:#e6eefb;color:#185fa5;"><i class="bi bi-calendar-day"></i></div></div></div>
-    </div>
-
-    <div class="d-flex flex-wrap gap-2 align-items-center mb-3 filter-row">
-      <div class="search-box flex-grow-1" style="min-width:200px;max-width:280px;">
-        <i class="bi bi-search"></i>
-        <input type="text" class="form-control" id="searchInput" placeholder="Search patient or doctor…" oninput="renderTable()"/>
-      </div>
-      <select class="form-select" style="max-width:160px;" id="filterStatus" onchange="renderTable()">
-        <option value="">All Status</option><option>Confirmed</option><option>Pending</option><option>Cancelled</option>
-      </select>
-      <select class="form-select" style="max-width:190px;" id="filterDoctor" onchange="renderTable()">
-        <option value="">All Doctors</option><option>Dr. Priya Sharma</option><option>Dr. Arun Mehta</option><option>Dr. Sara Khan</option><option>Dr. Raj Verma</option>
-      </select>
-    </div>
-
-    <div class="table-wrap">
-      <table class="table table-hover mb-0" id="apptTable">
-        <thead><tr><th>#</th><th>Patient</th><th>Doctor</th><th>Specialty</th><th>Date & Time</th><th>Type</th><th>Status</th><th>Actions</th></tr></thead>
-        <tbody id="tableBody"></tbody>
-      </table>
-    </div>
-    <div id="emptyState" class="text-center py-5" style="display:none;">
-      <i class="bi bi-calendar-x" style="font-size:2.5rem;color:var(--border);"></i>
-      <div style="color:var(--muted);margin-top:10px;font-size:0.9rem;">No appointments found.</div>
-    </div>
-  </div>
-</div>
 
 <footer>
   &copy; 2025 <span>MediCare</span> · Built for better health · All rights reserved
@@ -374,20 +205,5 @@ footer span{color:var(--teal-mid);}
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<script>
-    function showPage(name) {
-        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-        document.getElementById('page-' + name).classList.add('active');
-        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-        const nl = document.getElementById('nav-' + name);
-        if (nl) nl.classList.add('active');
-        window.scrollTo(0, 0);
-    }
-
-    function scrollToSec(id) {
-        showPage('home');
-        setTimeout(() => { const el = document.getElementById(id); if (el) el.scrollIntoView({behavior:'smooth',block:'start'}); }, 120);
-    }
-</script>
 </body>
 </html>
